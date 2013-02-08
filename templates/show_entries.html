@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <dl>
+        <dt>Name:
+        <dd><input type=text size=30 name="name">
+        <dt>Mobile Number:
+      <dd><input type=text size=30 name="cellnumber">
+      <dt>Number in Party:
+      <dd><input type=text size=30 name="partyof">
+      <dt>Priority Customer
+      <dd><input type="checkbox" name="priority">
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+  {% endif %}
+  
+{% for i in range(0,6) %}
+<a href="{{ url_for('show_entries', partysize=i) }}"> Party of {{i}} </a> 
+{% endfor %}
+<div class="CSSTableGenerator" >
+
+  <table class="fixed">
+    <col width="20px" />
+    <col width="200px" />
+    <col width="75px" />
+    <col width="150px" />
+    <col width="250px" />
+     <tr> 
+      <td>  </td>
+      <td>  Name </td>
+      <td>  Party </td>
+      <td>  Phone Number </td>
+      <td>  Text </td>
+    </tr>
+  {% for entry in entries %}
+   <tr> 
+      <td> {{ entry.priority }} </td>
+      <td> {{ entry.name }} </td>
+      <td> {{ entry.partyof }} </td>
+      <td> {{ entry.cellnumber }} </td>
+      <td> <a href="{{ url_for('text', reservation_id=entry.id) }}">text em</a> </td> 
+    </tr>
+    <div class="CSSTableGenerator" >
+
+      {% else %}
+    <li><em>There are currently no Reservations</em>
+  {% endfor %}
+</table>
+</div>
+
+{% endblock %}

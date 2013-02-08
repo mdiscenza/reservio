@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <dl>
+        <dt>Name:
+        <dd><input type=text size=30 name=name>
+        <dt>Mobile Number:
+     	<dd><input type=text size=30 name=cell_phone>
+     	<dt>Number in Party:
+     	<dd><input type=text size=30 name=party_of>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+
+{% endblock %}
