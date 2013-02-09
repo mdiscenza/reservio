@@ -2,25 +2,35 @@
 {% block body %}
   {% if session.logged_in %}
     <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
-      <dl>
-        <dt>Name:
-        <dd><input type=text size=30 name="name">
-        <dt>Mobile Number:
-      <dd><input type=text size=30 name="cellnumber">
-      <dt>Number in Party:
-      <dd><input type=text size=30 name="partyof">
-      <dt>Priority Customer
-      <dd><input type="checkbox" name="priority">
-        <dd><input type=submit value=Share>
-      </dl>
+      <table>
+        <tr>
+        <td>Name:</td>
+        <td><input type=text size=30 name="name"></td>
+      </tr>
+      <tr>
+        <td>Mobile Number:</td>
+      <td><input type=text size=30 name="cellnumber"></td>
+      </tr>
+        <tr>
+      <td>Number in Party:</td>
+      <td><input type=text size=30 name="partyof"></td>
+    </tr>
+    <tr>
+      <td>Priority Customer</td>
+      <td><input type="checkbox" name="priority"></td>
+    </tr>
+      </table>
+      <input type=submit class="button" value=Share>
     </form>
   {% endif %}
-  
-{% for i in range(0,6) %}
-<a href="{{ url_for('show_entries', partysize=i) }}"> Party of {{i}} </a> 
+  <br>
+<p>Show all parties of: 
+{% for i in range(1,6) %}
+<a href="{{ url_for('show_entries', partysize=i) }}" class="button">{{i}} </a> 
 {% endfor %}
-<div class="CSSTableGenerator" >
+<a href="{{ url_for('show_entries', partysize=None) }}" class="button">Show All </a> </p>
 
+<div class="CSSTableGenerator" >
   <table class="fixed">
     <col width="20px" />
     <col width="200px" />
@@ -36,11 +46,11 @@
     </tr>
   {% for entry in entries %}
    <tr> 
-      <td> {{ entry.priority }} </td>
+      <td class="entryPriority"> {% if entry.priority==1 %} &#9733; {% endif %}</td>
       <td> {{ entry.name }} </td>
-      <td> {{ entry.partyof }} </td>
+      <td class="partyNum"> {{ entry.partyof }} </td>
       <td> {{ entry.cellnumber }} </td>
-      <td> <a href="{{ url_for('text', reservation_id=entry.id) }}">text em</a> </td> 
+      <td> <a href="{{ url_for('text', reservation_id=entry.id) }}" class="btn-text">Notify</a> </td> 
     </tr>
     <div class="CSSTableGenerator" >
 

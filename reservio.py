@@ -69,14 +69,15 @@ def close_db_connection(exception):
 @app.route('/')
 @app.route('/<partysize>')
 def show_entries(partysize=None):
-    #if partysize==None:
-    db = get_db()
-    cur = db.execute('select name, cellnumber, partyof, priority, id from entries order by id asc')
-    entries = cur.fetchall()
-    # else:
-    #     query = "select name, cellnumber, partyof from entries where partyof=%d order by id asc " %partysize
-    #     db = get_db()
-    #     cur = db.execute(query)
+    if partysize==None:
+        db = get_db()
+        cur = db.execute('select name, cellnumber, partyof, priority, id from entries order by id asc')
+        entries = cur.fetchall()
+    else:
+        query = ("select name, cellnumber, partyof, priority from entries where partyof=%d order by id asc" % int(partysize))
+        db = get_db()
+        cur = db.execute(query)
+        entries = cur.fetchall()
     return render_template('show_entries.html', entries=entries)
 
 

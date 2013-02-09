@@ -19,13 +19,83 @@ h3              { border-bottom: 2px solid #eee; }
 .error          { background: #F0D6D6; padding: 0.5em; }
 
 
+
+
+
+
+
+
+.button {
+	margin: 5px 5px 15px 5px;
+   background: #999999;
+   /*background: -webkit-gradient(linear, left top, left bottom, from(#585959), to(#999999));
+   background: -webkit-linear-gradient(top, #585959, #999999);
+   background: -moz-linear-gradient(top, #585959, #999999);
+   background: -ms-linear-gradient(top, #585959, #999999);
+   background: -o-linear-gradient(top, #585959, #999999);*/
+   padding: 5px 15px;
+   -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   border-radius: 7px;
+   color: #000000;
+   font-size: 16px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   text-align: center;
+   border: none !important;
+   }
+.button:hover {
+   border-top-color: #377ba8;
+   background: #377BA8;
+   color: #000000;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+
+.partyNum{
+	text-align: center !important;
+}
+
+.entryPriority{
+	min-width: 13px;
+}
+
+.btn-text {
+color: #ffffff;
+
+background-color: #da4f49;
+ -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   border-radius: 7px;
+ padding: 5px 20px;
+border-color: #bd362f #bd362f #802420;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+text-decoration: none;
+}
+
+.btn-text:visited {
+	background: silver;
+}
+
+
+.btn-text:hover {
+   background: rgb(129, 2, 2);
+   }
+
+
 .CSSTableGenerator {
 
 	margin:0px;padding:0px;
 
 	width:100%;
 
-	border:1px solid #ffffff;
+	border:0px solid #ffffff;
 
 	
 
