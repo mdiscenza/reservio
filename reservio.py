@@ -13,7 +13,7 @@ from __future__ import with_statement
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, _app_ctx_stack
 from twilio.rest import TwilioRestClient
-from config import account_sid, auth_token, secret_key, username, password 
+from config import account_sid, auth_token, secret_key, twilioNumber, username, password 
 #imports private tokens for my Twillio account and for this app
 
 
@@ -101,6 +101,12 @@ def add_entry():
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
 
+@app.route('/remove/<reservation_id>')
+def remove(reservation_id):
+    db = get_db()
+    db.execute("delete from entries where id= %s" % reservation_id)
+    db.commit()
+    return redirect(url_for('show_entries'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -129,8 +135,8 @@ def text(reservation_id):
     db = get_db()
     recipiant_number = db.execute("select cellnumber from entries where id= %s" % reservation_id).fetchone()[0]
     recipiant_name = db.execute("select name from entries where id= %s" %reservation_id).fetchone()[0]
-    message_body = "Hey %s, your table is ready! Please see the host right away!" %str(recipiant_name)
-    message = client.sms.messages.create(to=("+%s" % recipiant_number), from_="+18602544361",body=message_body)
+    message_body = "Hey %s, your table at Discenza Trattoria is ready! Please see the host right away!" %str(recipiant_name)
+    message = client.sms.messages.create(to=("+%s" % recipiant_number), from_=twilioNumber,body=message_body)
     print message.sid
     flash('Your text was sent!')
     return redirect(url_for('show_entries'))

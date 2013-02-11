@@ -1,9 +1,10 @@
 body            { font-family: sans-serif; background: #eee; }
 a, h1, h2       { color: #377BA8; }
-h1, h2, h3          { font-family: 'Georgia', serif; margin: 0; }
+h1, h2, h3          { font-family: sans-serif; margin: 0; }
 h1              { border-bottom: 2px solid #eee; }
 h2              { font-size: 1.2em; }
 h3              { border-bottom: 2px solid #eee; }
+
 
 .page           { margin: 2em auto; width: 35em; border: 5px solid #ccc;
                   padding: 0.8em; background: white; }
@@ -17,10 +18,13 @@ h3              { border-bottom: 2px solid #eee; }
 .flash          { background: #CEE5F5; padding: 0.5em;
                   border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
+	.restaurant		{font-family: Zapf Chancery, cursive}
 
 
-
-
+#logo			{	width: 500px;
+					display: block;
+					margin: 0 auto; 
+				}
 
 
 
@@ -28,18 +32,13 @@ h3              { border-bottom: 2px solid #eee; }
 .button {
 	margin: 5px 5px 15px 5px;
    background: #999999;
-   /*background: -webkit-gradient(linear, left top, left bottom, from(#585959), to(#999999));
-   background: -webkit-linear-gradient(top, #585959, #999999);
-   background: -moz-linear-gradient(top, #585959, #999999);
-   background: -ms-linear-gradient(top, #585959, #999999);
-   background: -o-linear-gradient(top, #585959, #999999);*/
    padding: 5px 15px;
    -webkit-border-radius: 7px;
    -moz-border-radius: 7px;
    border-radius: 7px;
    color: #000000;
    font-size: 16px;
-   font-family: Georgia, serif;
+   font-family: sans-serif;
    text-decoration: none;
    vertical-align: middle;
    text-align: center;
@@ -64,7 +63,7 @@ h3              { border-bottom: 2px solid #eee; }
 	min-width: 13px;
 }
 
-.btn-text {
+.btn-remove {
 color: #ffffff;
 
 background-color: #da4f49;
@@ -78,15 +77,30 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', en
 filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 text-decoration: none;
 }
-
-.btn-text:visited {
-	background: silver;
-}
-
-
-.btn-text:hover {
+.btn-remove:hover {
    background: rgb(129, 2, 2);
    }
+
+.btn-notify {
+color: #ffffff;
+
+background-color: #377BA8;
+ -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   border-radius: 7px;
+ padding: 5px 20px;
+border-color: #bd362f #bd362f #802420;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+text-decoration: none;
+}
+.btn-notify:hover {
+   background: rgb(11, 75, 117);
+   }
+  .btn-notify:visited {
+	background: silver;
+}
 
 
 .CSSTableGenerator {
@@ -201,7 +215,7 @@ text-decoration: none;
 
 	font-size:12px;
 
-	font-family:Georgia;
+	font-family:sans-serif;
 
 	font-weight:normal;
 
@@ -238,7 +252,7 @@ text-decoration: none;
 
 	font-size:14px;
 
-	font-family:Georgia;
+	font-family:sans-serif;
 
 	font-weight:bold;
 

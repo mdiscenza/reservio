@@ -42,7 +42,7 @@
       <td>  Name </td>
       <td>  Party </td>
       <td>  Phone Number </td>
-      <td>  Text </td>
+      <td>   </td>
     </tr>
   {% for entry in entries %}
    <tr> 
@@ -50,7 +50,10 @@
       <td> {{ entry.name }} </td>
       <td class="partyNum"> {{ entry.partyof }} </td>
       <td> {{ entry.cellnumber }} </td>
-      <td> <a href="{{ url_for('text', reservation_id=entry.id) }}" class="btn-text">Notify</a> </td> 
+      <td> 
+        <a href="{{ url_for('text', reservation_id=entry.id) }}" class="btn-notify">Notify</a> 
+        <a href="{{ url_for('remove', reservation_id=entry.id) }}" class="btn-remove">Remove</a> 
+      </td> 
     </tr>
     <div class="CSSTableGenerator" >
 
